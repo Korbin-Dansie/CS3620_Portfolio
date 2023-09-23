@@ -1,3 +1,21 @@
+/* Colors 
+    White - F9F7F7
+    BlueLight - DBE2EF
+    BlueMedium - 3F72AF
+    BlueDark - 112D4E
+*/
 .bd-header{
-    background-color:aqua;
+    background-color:#112D4E;
+}
+
+.bd-content{
+    background-color:#F9F7F7;
+}
+
+.bd-main{
+    background-color:#DBE2EF;
+}
+
+.nav-item{
+    color:#DBE2EF;
 }
