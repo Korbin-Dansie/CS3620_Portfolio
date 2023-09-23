@@ -2,4 +2,21 @@
 
 {% block content %}
 <h1>Hobbies</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for item in hobby_list %}
+    <tr>
+        <td>
+            {{item.name}}
+        </td>
+        <td>
+            {{item.description}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
