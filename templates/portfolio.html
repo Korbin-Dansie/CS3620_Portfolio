@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Portfolio</h1>
-<table>
+<h1 class="h1">Portfolio</h1>
+<table class="table table-striped">
     <tr>
         <th>Name</th>
         <th>Description</th>
     </tr>
     {% for item in portfolio_list %}
     <tr>
-        <td>
+        <td class="fw-bold" scope="row">
             {{item.name}}
         </td>
         <td>
