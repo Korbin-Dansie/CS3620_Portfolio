@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Contact.views import contact_view
-from Hobbies.views import hobbies_view
-from Home.views import home_view
-from Portfolio.views import portfolio_view
+from contact.views import contact_view
+from hobbies.views import hobbies_view
+from home.views import home_view
+from portfolio.views import portfolio_view
 
 urlpatterns = [
     path('', home_view, name='home'), # Change the index page
