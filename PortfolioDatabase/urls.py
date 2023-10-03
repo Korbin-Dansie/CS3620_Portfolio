@@ -18,10 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 
-from contact.views import contact_view
-from hobbies.views import hobbies_view
-from home.views import home_view
-from portfolio.views import portfolio_view
+
+from portfolio.views import portfolio_view, contact_view, hobbies_view, home_view
 
 urlpatterns = [
     path('', home_view, name='home'), # Change the index page

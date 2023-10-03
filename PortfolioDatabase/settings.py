@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     # Third Pary
 
     # Own startapp that I created
-    'home',
-    'hobbies',
-    'contact',
     'portfolio'
 
 ]
