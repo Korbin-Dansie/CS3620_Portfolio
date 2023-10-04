@@ -10,7 +10,9 @@
     {% for item in hobby_list %}
     <tr>
         <td class="fw-bold" scope="row">
-            {{item.name}}
+            <a href="{% url 'hobbies_detail' item.id %}">
+                {{item.name}}
+            </a>
         </td>
         <td>
             {{item.description}}

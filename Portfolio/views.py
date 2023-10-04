@@ -22,11 +22,19 @@ def hobbies_view(request, *args, **kwargs):
         "site_title": "Hobbies",
         "hobby_list": Hobby.objects.all()
     }
-    return render(request, "hobbies.html", my_context) # return an html template
+    return render(request, "portfolio/hobby/hobbies.html", my_context) # return an html template
 
+def hobbies_detail_view(request, hobby_id, *args, **kwargs):
+    my_context = {
+        "item": Hobby.objects.get(pk=hobby_id),
+        "site_title": "Hobbies",
+    }
+    return render(request, "portfolio/hobby/hobbies_detail.html", my_context) # return an html template
 
 def contact_view(request, *args, **kwargs):
     my_context = {
         "site_title": "Contact",
     }
     return render(request, "contact.html", my_context) # return an html template
+
+    

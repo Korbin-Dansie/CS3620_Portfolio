@@ -17,15 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
+from portfolio.models import Hobby, Portfolio
 
-
-from portfolio.views import portfolio_view, contact_view, hobbies_view, home_view
-
+from portfolio.views import portfolio_view, contact_view, hobbies_view, home_view, hobbies_detail_view
 urlpatterns = [
     path('', home_view, name='home'), # Change the index page
     path('contact/', contact_view, name='contact'),
+
+
     path('hobbies/', hobbies_view, name='hobbies'),
+    # hobbies/:id
+    path('hobbies/<int:hobby_id>/', hobbies_detail_view, name='hobbies_detail'),
+
+
     path('portfolio', portfolio_view, name='portfolio'),
+
 
     path('admin/', admin.site.urls),
 ]
