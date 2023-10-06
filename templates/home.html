@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 <h2>Hi, I'm Korbin Dansie</h2>
-<h1>I am an computer engineer, alway eager to learn more.</h1>
-<p>I found my love of programming back in high school. When I so innocently decided to take just one programming course. After that, I was hooked. I then began pursuing a bachelor's degree in software engineering.</p>
+<div class="row">
+    <div class="col-md-8">
+        <h1>I am an computer engineer, alway eager to learn more.</h1>
+        <p>I found my love of programming back in high school. When I so innocently decided to take just one programming course. After that, I was hooked. I then began pursuing a bachelor's degree in software engineering.</p>        
+    </div>
+    <div class="col-md-4">
+        <img src="{% static 'images/Korbin_2022_Close.JPG' %}" alt="A picture of myself" class="rounded img-fluid w-100">    
+    </div>
+</div>
 {% endblock %}
