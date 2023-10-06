@@ -19,7 +19,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from portfolio.models import Hobby, Portfolio
 
-from portfolio.views import portfolio_view, contact_view, hobbies_view, home_view, hobbies_detail_view
+from portfolio.views import portfolio_view, portfolio_detail_view, contact_view, hobbies_view, home_view, hobbies_detail_view
 urlpatterns = [
     path('', home_view, name='home'), # Change the index page
     path('contact/', contact_view, name='contact'),
@@ -30,7 +30,8 @@ urlpatterns = [
     path('hobbies/<int:hobby_id>/', hobbies_detail_view, name='hobbies_detail'),
 
 
-    path('portfolio', portfolio_view, name='portfolio'),
+    path('portfolio/', portfolio_view, name='portfolio'),
+    path('portfolio/<int:portfolio_id>/', portfolio_detail_view, name='portfolio_detail'),
 
 
     path('admin/', admin.site.urls),
