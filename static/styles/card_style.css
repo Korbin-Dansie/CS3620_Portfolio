@@ -1,5 +1,5 @@
 /* Alternating Horizontal Bootstrap cards */
-/* https://codepen.io/duness/pen/vezOYW */
+/* Based off of - https://codepen.io/duness/pen/vezOYW - Found on - https://colorlib.com/wp/bootstrap-cards/ */
 .vgr-cards {
     .card {
         margin-bottom: 40px;
@@ -7,16 +7,11 @@
         &:nth-child(even) .card-img-body {
             order: 2;
         }
-
-        /* &:nth-child(even) .card-body {
-            padding-left: 0;
-            padding-right: 1.25rem;
-        } */
     }
 
     .card-img-body {
         flex: 1;
-        height: 250px;
+         height: 15.625rem; /* 250px */
         overflow: hidden;
     }
 
