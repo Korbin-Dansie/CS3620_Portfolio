@@ -4,18 +4,26 @@
     BlueMedium - 3F72AF
     BlueDark - 112D4E
 */
+:root{
+    --White: #F9F7F7;
+    --BlueLight: #DBE2EF;
+    --BlueMedium: #3F72AF;
+    --BlueDark: #112D4E;
+
+}
+
 .bd-header{
-    background-color:#112D4E;
+    background-color:var(--BlueDark);
 }
 
 .bd-content{
-    background-color:#F9F7F7;
+    background-color:var(--White);
 }
 
 .bd-main{
-    background-color:#DBE2EF;
+    background-color:var(--White);
 }
 
 .bd-nav-item{
-    color:#DBE2EF;
+    color:var(--White);
 }

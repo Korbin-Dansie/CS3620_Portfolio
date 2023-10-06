@@ -1,0 +1,37 @@
+/* Alternating Horizontal Bootstrap cards */
+/* https://codepen.io/duness/pen/vezOYW */
+.vgr-cards {
+    .card {
+        margin-bottom: 40px;
+
+        &:nth-child(even) .card-img-body {
+            order: 2;
+        }
+
+        /* &:nth-child(even) .card-body {
+            padding-left: 0;
+            padding-right: 1.25rem;
+        } */
+    }
+
+    .card-img-body {
+        flex: 1;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .card-img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .card-body {
+        flex: 2;
+        padding: 0 1.25rem;
+
+        @media (max-width: 576px) {
+            padding: 0;
+        }
+    }
+}

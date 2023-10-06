@@ -11,6 +11,7 @@ class Portfolio(models.Model) :
 class Hobby(models.Model) : 
     name  = models.CharField(max_length=255) # have to use max length for a CharField
     description = models.TextField(blank=False, null=False)
-
+    image = models.CharField(max_length=255, null=True)
+    image_alt = models.CharField(max_length=255, null=True) # Used for alt text of the image
     def __str__(self):
         return self.name
