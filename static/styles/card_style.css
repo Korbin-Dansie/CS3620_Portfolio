@@ -1,0 +1,32 @@
+/* Alternating Horizontal Bootstrap cards */
+/* Based off of - https://codepen.io/duness/pen/vezOYW - Found on - https://colorlib.com/wp/bootstrap-cards/ */
+.vgr-cards {
+    .card {
+        margin-bottom: 40px;
+
+        &:nth-child(even) .card-img-body {
+            order: 2;
+        }
+    }
+
+    .card-img-body {
+        flex: 1;
+         height: 15.625rem; /* 250px */
+        overflow: hidden;
+    }
+
+    .card-img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .card-body {
+        flex: 2;
+        padding: 0 1.25rem;
+
+        @media (max-width: 576px) {
+            padding: 0;
+        }
+    }
+}

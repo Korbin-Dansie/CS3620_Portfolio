@@ -1,23 +1,49 @@
 {% extends 'base.html' %}
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/card_style.css' %}">
+{% endblock %}
 
 {% block content %}
+{% load static %}
 <h1 class="h1">Hobbies</h1>
-<table class="table table-striped">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    {% for item in hobby_list %}
-    <tr>
-        <td class="fw-bold" scope="row">
-            <a href="{% url 'hobbies_detail' item.id %}">
-                {{item.name}}
-            </a>
-        </td>
-        <td>
-            {{item.description}}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="vgr-cards">
+  {% for item in hobby_list %}
+  <div class="card">
+    <div class="container-fluid">
+      <div class="row">
+        {% if forloop.counter0|divisibleby:2 %}
+        <!-- If the row count is EVEN then display the image on the LEFT -->
+        <div class="col-md-4">
+          <div class="card-img-body">
+            <img src="{% static item.image %}" alt="{{item.image_alt}}" class="card-img">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body pb-sm-3">
+            <h4 class="card-title">{{item.name}}</h4>
+            <p class="card-text">{{item.description}}</p>
+            <a href="{% url 'hobbies_detail' item.id %}" class="btn btn-outline-primary">Details</a>
+          </div>
+        </div>
+        {% else %}
+        <!-- If the row count is ODD then display the image on the RIGHT -->
+        <div class="col-md-8">
+          <div class="card-body pb-sm-3">
+            <h4 class="card-title">{{item.name}}</h4>
+            <p class="card-text">{{item.description}}</p>
+            <a href="{% url 'hobbies_detail' item.id %}" class="btn btn-outline-primary">Details</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-img-body">
+            <img src="{% static item.image %}" alt="{{item.image_alt}}" class="card-img">
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
