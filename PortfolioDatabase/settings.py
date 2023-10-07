@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     # Third Pary
 
     # Own startapp that I created
-    'portfolio'
-
+    'users',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
