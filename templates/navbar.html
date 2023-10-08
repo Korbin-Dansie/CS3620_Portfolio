@@ -25,7 +25,14 @@
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link bd-login-btn" href="{% url 'users:logout' %}">Logout</a>
+          <button type="button" class="btn btn-secondary dropdown-toggle bd-login-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+            Hello, {{ user.username }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'users:profile' %}">Profile</a></li>
+
+            <li><a class="dropdown-item" href="{% url 'users:logout' %}">Logout</a></li>
+          </ul>        
         </li>
         {% endif %}
       </ul>

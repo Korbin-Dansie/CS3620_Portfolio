@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from users.forms import RegistrationForm # My custom registration form
 
@@ -19,3 +20,10 @@ def register_view(request, *args, **kwargs):
         'form': form
     }
     return render(request, "users/register.html", my_context)
+
+@login_required
+def profile_view(request, *args, **kwargs):    
+    my_context = {
+       "site_title": "Profile",
+    }
+    return render(request, "users/profile.html", my_context)

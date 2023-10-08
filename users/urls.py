@@ -1,6 +1,6 @@
 from django.urls import path
 
-from users.views import register_view
+from users.views import register_view, profile_view
 from django.contrib.auth import views as authentication_views
 
 app_name = "users"
@@ -13,4 +13,6 @@ urlpatterns = [
     
     # Create a custom register view
     path('register/', register_view, name='register'),
+    path('profile/', profile_view, name='profile'),
+
 ]
