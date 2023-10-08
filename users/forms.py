@@ -5,8 +5,6 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 # Can change the users here 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField() # add email
-    # username = forms.CharField(max_length=150)
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"] # What variable do we want the from to display
