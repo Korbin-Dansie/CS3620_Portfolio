@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+# Imports to server user uploaded files during development
+from django.conf import settings
+from django.conf.urls.static import static
+# Custom views
 from portfolio.models import Hobby, Portfolio
-
 from portfolio.views import portfolio_view, portfolio_detail_view, contact_view, hobbies_view, home_view, hobbies_detail_view
 
 urlpatterns = [
@@ -36,4 +39,4 @@ urlpatterns = [
 
     path("users/", include("users.urls")),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
