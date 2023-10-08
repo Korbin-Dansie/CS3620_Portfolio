@@ -3,7 +3,10 @@
 {% block content %}
 {% load static %}
 <h1>Register</h1>
-{{form}}
-<button type="submit" class="btn btn-primary">Submit</button>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 {% endblock %}

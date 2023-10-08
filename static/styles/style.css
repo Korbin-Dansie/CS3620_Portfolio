@@ -4,7 +4,8 @@
     BlueMedium - 3F72AF
     BlueDark - 112D4E
 */
-:root{
+:root {
+    --Orange: #FF731D;
     --White: #F9F7F7;
     --BlueLight: #DBE2EF;
     --BlueMedium: #3F72AF;
@@ -12,18 +13,42 @@
 
 }
 
-.bd-header{
-    background-color:var(--BlueDark);
+.bd-header {
+    background-color: var(--BlueDark);
 }
 
-.bd-content{
-    background-color:var(--White);
+.bd-content {
+    background-color: var(--White);
 }
 
-.bd-main{
-    background-color:var(--White);
+.bd-main {
+    background-color: var(--White);
 }
 
-.bd-nav-item{
-    color:var(--White);
+.bd-nav-item {
+    color: var(--White);
+}
+
+.bd-nav-item:hover,
+.bd-nav-item:active {
+    border-top: 1px solid var(--Orange);
+    border-bottom: 1px solid var(--Orange);
+    padding-bottom: calc(0.5rem - 2px); /* 0.5rem is bootstraps padding or nav-items */
+    color: var(--Orange);
+}
+
+.bd-login-btn{
+    background-color: var(--Orange);
+    color: var(--White);
+    border-radius: 8px;
+    border-style: none;
+    padding: 10px 16px;
+}
+
+.bd-login-btn:hover,
+.bd-login-btn:active
+{
+    filter: brightness(110%);
+    color: var(--White);
+    transition: all 350ms ease-in-out;
 }
