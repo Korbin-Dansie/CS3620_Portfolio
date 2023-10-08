@@ -29,6 +29,12 @@
     color: var(--White);
 }
 
+.bd-navbar-brand:hover,
+.bd-navbar-brand:active
+{
+    color: var(--Orange);
+}
+
 .bd-nav-item:hover,
 .bd-nav-item:active {
     border-top: 1px solid var(--Orange);
@@ -38,7 +44,7 @@
 }
 
 .bd-login-btn{
-    background-color: var(--Orange);
+    background-color: var(--BlueMedium);
     color: var(--White);
     border-radius: 8px;
     border-style: none;
@@ -48,7 +54,8 @@
 .bd-login-btn:hover,
 .bd-login-btn:active
 {
-    filter: brightness(110%);
-    color: var(--White);
+    /* filter: brightness(110%); */
+    background-color: var(--Orange);
+    /* color: var(--BlueDark); */
     transition: all 350ms ease-in-out;
 }

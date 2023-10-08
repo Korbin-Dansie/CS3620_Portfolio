@@ -127,6 +127,9 @@ STATICFILES_DIRS = [
     "/http://127.0.0.1:8000/static/",
 ]
 
+# Custom to change url after login
+LOGIN_REDIRECT_URL = 'home'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
