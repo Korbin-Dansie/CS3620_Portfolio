@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-{% load static %}
 <h1 class="h1">Hobbies</h1>
 <div class="vgr-cards">
   {% for item in hobby_list %}
@@ -16,7 +15,7 @@
         <!-- If the row count is EVEN then display the image on the LEFT -->
         <div class="col-md-4">
           <div class="card-img-body">
-            <img src="{% static item.image %}" alt="{{item.image_alt}}" class="card-img">
+            <img src="{{  item.image.url }}" alt="{{item.image_alt}}" class="card-img">
           </div>
         </div>
         <div class="col-md-8">
@@ -37,7 +36,7 @@
         </div>
         <div class="col-md-4">
           <div class="card-img-body">
-            <img src="{% static item.image %}" alt="{{item.image_alt}}" class="card-img">
+            <img src="{{ item.image.url }}" alt="{{item.image_alt}}" class="card-img">
           </div>
         </div>
         {% endif %}
