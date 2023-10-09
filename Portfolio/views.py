@@ -22,6 +22,26 @@ def portfolio_detail_view(request, portfolio_id, *args, **kwargs):
     }
     return render(request, "portfolio/portfolio/portfolio_detail.html", my_context) # return an html template
 
+def portfolio_manage_view(request, *args, **kwargs):
+    my_context = {
+        "site_title": "Manage Portfolio",
+        "portfolio_list": Portfolio.objects.all()
+    }
+    return render(request, "portfolio/portfolio/portfolio_manage.html", my_context) # return an html template
+
+def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
+    site_tile = ""
+    if (portfolio_id == 0):
+        site_tile = "Create Portfolio"
+    else:
+        site_tile = "Edit Portfolio"
+    my_context = {
+        "site_title": site_tile,
+        "item": Portfolio.objects.get_or_create(pk=portfolio_id),
+    }
+    return render(request, "portfolio/portfolio/portfolio_upsert.html", my_context) # return an html template
+
+
 def hobbies_view(request, *args, **kwargs):
     my_context = {
         "site_title": "Hobbies",
