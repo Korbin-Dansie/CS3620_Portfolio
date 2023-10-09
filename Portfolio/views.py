@@ -10,6 +10,7 @@ def home_view(request, *args, **kwargs):
     return render(request, "home.html", my_context) # return an html template
 
 def portfolio_view(request, *args, **kwargs):
+    """ Display all the portfolio items for guests """
     my_context = {
         "site_title": "Portfolio",
         "portfolio_list": Portfolio.objects.all()
@@ -17,6 +18,7 @@ def portfolio_view(request, *args, **kwargs):
     return render(request, "portfolio/portfolio/portfolio.html", my_context) # return an html template
 
 def portfolio_detail_view(request, portfolio_id, *args, **kwargs):
+    """ Display a portfolio item in more detail """
     my_context = {
         "site_title": "Portfolio",
         "item": Portfolio.objects.get(pk=portfolio_id),
@@ -24,6 +26,7 @@ def portfolio_detail_view(request, portfolio_id, *args, **kwargs):
     return render(request, "portfolio/portfolio/portfolio_detail.html", my_context) # return an html template
 
 def portfolio_manage_view(request, *args, **kwargs):
+    """ For admins display a list of portfolio items that can be edited or deleted """
     my_context = {
         "site_title": "Manage Portfolio",
         "portfolio_list": Portfolio.objects.all()
@@ -31,6 +34,7 @@ def portfolio_manage_view(request, *args, **kwargs):
     return render(request, "portfolio/portfolio/portfolio_manage.html", my_context) # return an html template
 
 def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
+    """ Create or edit an existing portfolio item. New items have an id of 0 """
     form = PortfolioForm(request.POST or None)
     try:
         instance = Portfolio.objects.get(pk=portfolio_id)
@@ -55,6 +59,16 @@ def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
         "form": form,
     }
     return render(request, "portfolio/portfolio/portfolio_upsert.html", my_context) # return an html template
+
+def portfolio_delete_view(request, portfolio_id, *args, **kwargs):
+    """ Create or edit an existing portfolio item. New items have an id of 0 """
+    try:
+        instance = Portfolio.objects.get(pk=portfolio_id)
+        instance.delete()
+    except Portfolio.DoesNotExist:
+        instance = None
+    
+    return redirect('portfolio_manage') # Return them to portfolio database home page
 
 
 def hobbies_view(request, *args, **kwargs):
