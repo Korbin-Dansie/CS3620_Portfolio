@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from portfolio.forms import PortfolioForm
 from portfolio.models import Portfolio, Hobby
 
 # Create your views here.
@@ -30,6 +31,20 @@ def portfolio_manage_view(request, *args, **kwargs):
     return render(request, "portfolio/portfolio/portfolio_manage.html", my_context) # return an html template
 
 def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
+    form = PortfolioForm(request.POST or None)
+    try:
+        instance = Portfolio.objects.get(pk=portfolio_id)
+    except Portfolio.DoesNotExist:
+        instance = None
+
+    if request.method == 'POST': # Check if the usersubmited the form correctly then redirect them
+        form = PortfolioForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('portfolio_manage') # Return them to portfolio database home page
+    else:
+        form = PortfolioForm(instance=instance)
+
     site_tile = ""
     if (portfolio_id == 0):
         site_tile = "Create Portfolio"
@@ -37,7 +52,7 @@ def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
         site_tile = "Edit Portfolio"
     my_context = {
         "site_title": site_tile,
-        "item": Portfolio.objects.get_or_create(pk=portfolio_id),
+        "form": form,
     }
     return render(request, "portfolio/portfolio/portfolio_upsert.html", my_context) # return an html template
 
