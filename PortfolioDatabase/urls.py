@@ -22,11 +22,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 # Custom views
 from portfolio.models import Hobby, Portfolio
-from portfolio.views import portfolio_view, portfolio_detail_view, portfolio_manage_view, portfolio_upsert_view, portfolio_delete_view, contact_view, hobbies_view, home_view, hobbies_detail_view
+from portfolio.views import portfolio_view, portfolio_detail_view, portfolio_manage_view, portfolio_upsert_view, portfolio_delete_view
+from portfolio.views import contact_view, hobbies_view, home_view, hobbies_detail_view
 
 urlpatterns = [
     path('', home_view, name='home'), # Change the index page
-    path('contact/', contact_view, name='contact'),
+    path('contact/', contact_view, name='contact'), # Send an message
 
 
     path('hobbies/', hobbies_view, name='hobbies'),

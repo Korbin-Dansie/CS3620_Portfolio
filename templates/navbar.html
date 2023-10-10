@@ -22,6 +22,8 @@
             <button type="button" class="nav-link dropdown-toggle bd-nav-item"  data-bs-toggle="dropdown" data-bs-target="#dropdown-admin" aria-expanded="false">Admin</button>
             <ul class="dropdown-menu" role="menu" id="dropdown-admin">
               <li><a class="dropdown-item" href="{% url 'portfolio_manage' %}">Manage Portfolio</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'admin:index' %}">Django Dashboard</a></li>
             </ul>  
           </div>
         </li>

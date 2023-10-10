@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
-from portfolio.forms import PortfolioForm
+from portfolio.forms import ContactForm, PortfolioForm
 from portfolio.models import Portfolio, Hobby
+from django.contrib import messages
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
@@ -86,9 +87,15 @@ def hobbies_detail_view(request, hobby_id, *args, **kwargs):
     return render(request, "portfolio/hobby/hobbies_detail.html", my_context) # return an html template
 
 def contact_view(request, *args, **kwargs):
+    form = ContactForm(request.POST or None)
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Thank you, I will be in touch soon.") # Display a succcessful contact submition
+            return redirect("contact") # Return via GET to prevent resubmit
     my_context = {
         "site_title": "Contact",
+        "form": form
     }
-    return render(request, "contact.html", my_context) # return an html template
-
-    
+    return render(request, "contact.html", my_context) # return an html template  
