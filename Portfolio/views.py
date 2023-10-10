@@ -43,8 +43,10 @@ def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
         instance = None
 
     if request.method == 'POST': # Check if the usersubmited the form correctly then redirect them
-        form = PortfolioForm(request.POST, instance=instance)
+        print("Form was posted")
+        form = PortfolioForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
+            print("Form is valid")
             form.save()
             return redirect('portfolio_manage') # Return them to portfolio database home page
     else:

@@ -5,7 +5,7 @@ from django.db import models
 class Portfolio(models.Model) : 
     name  = models.CharField(max_length=255) # have to use max length for a CharField
     description = models.TextField(blank=False, null=False)
-    image = models.ImageField(upload_to="portfolio", blank=True, null=False)
+    image = models.ImageField(upload_to="portfolio")
     image_alt = models.CharField(max_length=255, blank=True) # Used for alt text of the image
     def __str__(self):
         return self.name
@@ -13,7 +13,7 @@ class Portfolio(models.Model) :
 class Hobby(models.Model) : 
     name  = models.CharField(max_length=255) # have to use max length for a CharField
     description = models.TextField(blank=False, null=False)
-    image = models.ImageField(upload_to="hobby", blank=True, null=False)
+    image = models.ImageField(upload_to="hobby")
     image_alt = models.CharField(max_length=255, blank=True) # Used for alt text of the image
     def __str__(self):
         return self.name
