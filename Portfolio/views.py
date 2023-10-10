@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from portfolio.forms import ContactForm, PortfolioForm
 from portfolio.models import Portfolio, Hobby
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
@@ -27,6 +28,7 @@ def portfolio_detail_view(request, portfolio_id, *args, **kwargs):
     }
     return render(request, "portfolio/portfolio/portfolio_detail.html", my_context) # return an html template
 
+@login_required
 def portfolio_manage_view(request, *args, **kwargs):
     """ For admins display a list of portfolio items that can be edited or deleted """
     my_context = {
@@ -35,6 +37,7 @@ def portfolio_manage_view(request, *args, **kwargs):
     }
     return render(request, "portfolio/portfolio/portfolio_manage.html", my_context) # return an html template
 
+@login_required
 def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
     """ Create or edit an existing portfolio item. New items have an id of 0 """
     form = PortfolioForm(request.POST or None)
@@ -62,6 +65,7 @@ def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
     }
     return render(request, "portfolio/portfolio/portfolio_upsert.html", my_context) # return an html template
 
+@login_required
 def portfolio_delete_view(request, portfolio_id, *args, **kwargs):
     """ Create or edit an existing portfolio item. New items have an id of 0 """
     try:
