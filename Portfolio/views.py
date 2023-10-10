@@ -44,13 +44,7 @@ def portfolio_upsert_view(request, portfolio_id, *args, **kwargs):
         instance = None
 
     if request.method == 'POST': # Check if the usersubmited the form correctly then redirect them
-        # Delete the old picture
-        if instance is not None:
-            image_path = instance.image.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
         form = PortfolioForm(request.POST, request.FILES, instance=instance)
-
         if form.is_valid():
             form.save()
             return redirect('portfolio_manage') # Return them to portfolio database home page
@@ -72,10 +66,6 @@ def portfolio_delete_view(request, portfolio_id, *args, **kwargs):
     """ Create or edit an existing portfolio item. New items have an id of 0 """
     try:
         instance = Portfolio.objects.get(pk=portfolio_id)
-        # Delete old picture
-        image_path = instance.image.path
-        if os.path.exists(image_path):
-            os.remove(image_path)
         instance.delete()
     except Portfolio.DoesNotExist:
         instance = None
