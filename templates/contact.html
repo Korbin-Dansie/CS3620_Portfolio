@@ -2,5 +2,43 @@
 
 {% block content %}
 <h1>Contact</h1>
-<h2 class="text-center">korbindansie@mail.weber.edu</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center">korbindansie@mail.weber.edu</h2>
+      <p>
+        Hello, my name is korbin dansie and I look forward to working with you.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="card" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <div class="">
+            <h2 class="fw-bold mb-2 text-uppercase">Get in touch</h2>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-outline form-white mb-4">
+                {{ form.name }}
+                {{ form.name.errors }}
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                {{ form.email }}
+                {{ form.email.errors }}
+              </div>
+              <div class="form-outline form-white mb-4">
+                {{ form.message }}
+                {{ form.message.errors }}
+              </div>
+              <button class="btn btn-outline-primary btn-lg px-5" type="submit">Submit</button>
+            </form>
+            {% if form.errors %}
+            <p class="alert alert-danger my-2 py-1" role="alert">Error: Some information is incorrect or missing</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

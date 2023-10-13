@@ -7,8 +7,7 @@
     <p>{{item.description}}</p>    
 </div>
 <div class="col-md-4">
-    {% load static %}
-        <img src="{% static item.image %}" alt="{{item.image_alt}}" class="img-thumbnail">
+        <img src="{{ item.image.url }}" alt="{{item.image_alt}}" class="img-thumbnail">
     </div>
 </div>
 {% endblock %}
